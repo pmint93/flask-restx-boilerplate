@@ -1,0 +1,23 @@
+[Unit]
+Description = flask-restplus-boilerplate
+After = network.target
+
+[Service]
+PermissionsStartOnly = true
+PIDFile = /var/run/flask-restplus-boilerplate.pid
+User = root
+Group = root
+WorkingDirectory = /opt/flask-restplus-boilerplate
+RootDirectory = /opt/flask-restplus-boilerplate
+Environment=PATH=/opt/flask-restplus-boilerplate/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/snap/bin
+EnvironmentFile = /opt/flask-restplus-boilerplate/.env.production
+ExecStart = /bin/bash -c '/usr/bin/env gunicorn -c gunicorn.conf wsgi:app --pid /var/run/flask-restplus-boilerplate.pid'
+ExecReload = /bin/kill -s HUP $MAINPID
+ExecStop = /bin/kill -s TERM $MAINPID
+PrivateTmp = true
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=flask-restplus-boilerplate
+
+[Install]
+WantedBy = multi-user.target

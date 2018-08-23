@@ -16,8 +16,14 @@ manager = Manager(app)
 
 @manager.command
 def run():
-    app.run()
+    app.run(threaded=True)
 
+@manager.command
+def seed():
+    if app.environment == 'production':
+        print('Run seed on production environment is forbidden. Exit')
+        return False
+    from app.seed import seed_db; seed_db(app)
 
 @manager.command
 def test():

@@ -103,4 +103,5 @@ ENV/
 .mypy_cache/
 /migrations
 /seed
+/production
 .env.production
