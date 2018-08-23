@@ -8,12 +8,12 @@ cache = Cache()
 sentry = Sentry()
 
 
-def create_app(config_name):
+def create_app(env_name):
     app = Flask(__name__)
     # Save environment name to current app context
-    app.environment = config_name
+    app.environment = env_name
     # Configure application from evironment name
-    app.config.from_object(config_by_name[config_name])
+    app.config.from_object(config_by_name[env_name])
     # Init application cache
     cache.init_app(app, config={'CACHE_TYPE': app.config['CACHE_TYPE']})
     # Init sentry for error reporting
