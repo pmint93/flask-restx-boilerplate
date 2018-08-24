@@ -49,10 +49,7 @@ def slowed_action(f=None, **config):
     def real_decorator(f):
         @wraps(f)
         def decorated(*args, **kwargs):
-            delayed_time = config.get('seconds')
-            if not delayed_time:
-                delayed_time = 2 # Default delayed time
-            delayed_time = int(delayed_time)
+            delayed_time = config.get('seconds', 2)
             time.sleep(delayed_time)
             return f(*args, **kwargs)
 
