@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_caching import Cache
 from raven.contrib.flask import Sentry
+from werkzeug.contrib.fixers import ProxyFix
 
 from .config import config_by_name
 
@@ -19,5 +20,7 @@ def create_app(env_name):
     # Init sentry for error reporting
     if app.config.get('SENTRY_CONFIG'):
         sentry.init_app(app)
+    # Fix Flask when deployed behind proxy
+    app.wsgi_app = ProxyFix(app.wsgi_app)
 
     return app
