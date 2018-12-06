@@ -2,11 +2,13 @@ from flask import Flask
 from flask_caching import Cache
 from raven.contrib.flask import Sentry
 from werkzeug.contrib.fixers import ProxyFix
+from flask_mongoengine import MongoEngine
 
 from .config import config_by_name
 
 cache = Cache()
 sentry = Sentry()
+db = MongoEngine()
 
 
 def create_app(env_name):
@@ -22,5 +24,7 @@ def create_app(env_name):
         sentry.init_app(app)
     # Fix Flask when deployed behind proxy
     app.wsgi_app = ProxyFix(app.wsgi_app)
+    # Init database connection
+    db.init_app(app)
 
     return app

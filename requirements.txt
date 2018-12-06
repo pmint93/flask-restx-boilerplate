@@ -25,3 +25,4 @@ six==1.11.0
 Werkzeug==0.14.1
 raven==6.9.0
 blinker==1.4
+flask-mongoengine==0.9.5

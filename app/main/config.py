@@ -15,15 +15,30 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    MONGODB_SETTINGS = {
+        'db': 'flask-restplus-boilerplate_development',
+        'host': os.getenv('MONGO_HOST', '127.0.0.1'),
+        'port': os.getenv('MONGO_PORT', 27017),
+    }
 
 
 class TestingConfig(Config):
     DEBUG = True
     TESTING = True
+    MONGODB_SETTINGS = {
+        'db': 'flask-restplus-boilerplate_test',
+        'host': os.getenv('MONGO_HOST', '127.0.0.1'),
+        'port': os.getenv('MONGO_PORT', 27017),
+    }
 
 
 class ProductionConfig(Config):
     DEBUG = False
+    MONGODB_SETTINGS = {
+        'db': 'flask-restplus-boilerplate',
+        'host': os.getenv('MONGO_HOST', '127.0.0.1'),
+        'port': os.getenv('MONGO_PORT', 27017),
+    }
 
 
 config_by_name = dict(
