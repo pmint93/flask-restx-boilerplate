@@ -9,4 +9,4 @@ done
 
 export SOURCE_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-docker-compose --project-directory $SOURCE_DIR/../ -f $SOURCE_DIR/../development/docker-compose.yaml $@
+docker-compose --project-directory $SOURCE_DIR/../ -f $SOURCE_DIR/docker-compose.yaml $@
