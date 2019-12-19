@@ -1,6 +1,6 @@
 # Flask-Restplus Boilerplate
 
-## Development
+## Local development
 
 ### Make commands
 
@@ -23,7 +23,7 @@ See supported commands: `python manage.py --help`
 Open the following url on your browser to view swagger documentation
 http://127.0.0.1:5000/
 
-## Production
+## Deploy
 
 ### Running on Linux distributions
 
@@ -45,8 +45,8 @@ $ pip install -r requirements.txt
 Copy and **modify** example environment config
 
 ```bash
-$ cp /opt/flask-restplus-boilerplate/.env.production.tpl /opt/flask-restplus-boilerplate/.env.production
-$ nano /opt/flask-restplus-boilerplate/.env.production
+$ cp /opt/flask-restplus-boilerplate/.env.deploy.tpl /opt/flask-restplus-boilerplate/.env.deploy
+$ nano /opt/flask-restplus-boilerplate/.env.deploy
 ```
 
 Install systemd service
@@ -91,6 +91,6 @@ Service log available in `journalctl -u flask-restplus-boilerplate` and `/var/lo
 
 Build image, and run as normal
 
-See example environment config in [.env.production.tpl](./.env.production.tpl)
+See example environment config in [.env.deploy.tpl](./.env.deploy.tpl)
 
 See available configuration in [config.py](./app/main/config.py) and [gunicorn.conf](./gunicorn.conf)

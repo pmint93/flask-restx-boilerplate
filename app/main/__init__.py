@@ -3,7 +3,7 @@ from flask_caching import Cache
 from raven.contrib.flask import Sentry
 from werkzeug.contrib.fixers import ProxyFix
 
-from .config import config_by_name
+from .config import Config as config
 
 cache = Cache()
 sentry = Sentry()
@@ -14,7 +14,7 @@ def create_app(env_name):
     # Save environment name to current app context
     app.environment = env_name
     # Configure application from evironment name
-    app.config.from_object(config_by_name[env_name])
+    app.config.from_object(config)
     # Init application cache
     cache.init_app(app, config={'CACHE_TYPE': app.config['CACHE_TYPE']})
     # Init sentry for error reporting

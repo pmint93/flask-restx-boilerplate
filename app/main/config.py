@@ -11,23 +11,3 @@ class Config:
     SENTRY_CONFIG = {
         'dsn': os.getenv('SENTRY_CONFIG_DSN', 'https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@sentry.k8s.vn/44?verify_ssl=0')
     } if os.getenv('SENTRY_CONFIG', 'False').lower() != 'false' else False
-
-
-class DevelopmentConfig(Config):
-    DEBUG = True
-
-
-class TestingConfig(Config):
-    DEBUG = True
-    TESTING = True
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
-config_by_name = dict(
-    development=DevelopmentConfig,
-    test=TestingConfig,
-    production=ProductionConfig
-)
