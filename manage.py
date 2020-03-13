@@ -16,7 +16,7 @@ manager = Manager(app)
 
 @manager.command
 def run():
-    app.run(threaded=True)
+    app.run(threaded=True, host=os.getenv('BIND_HOST', '127.0.0.1'), port=int(os.getenv('BIND_PORT', '5000')))
 
 @manager.command
 def seed():
