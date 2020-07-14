@@ -12,9 +12,11 @@ if app.config.get('ENABLE_CORS', False):
     CORS(
         blueprint,
         origins=app.config.get('CORS_ALLOW_ORIGINS'),
+        methods=app.config.get('CORS_ALLOW_METHODS'),
         allow_headers=app.config.get('CORS_ALLOW_HEADERS'),
         expose_headers=app.config.get('CORS_EXPOSE_HEADERS'),
-        supports_credentials=bool(app.config.get('CORS_ALLOW_CREDENTIALS', False))
+        supports_credentials=bool(app.config.get('CORS_ALLOW_CREDENTIALS', False)),
+        max_age=app.config.get('CORS_MAX_AGE')
     )
 app.register_blueprint(blueprint)
 

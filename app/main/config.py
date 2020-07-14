@@ -14,6 +14,8 @@ class Config:
     # CORS
     ENABLE_CORS             = os.getenv('ENABLE_CORS')
     CORS_ALLOW_ORIGINS      = os.getenv('CORS_ALLOW_ORIGINS')
+    CORS_ALLOW_METHODS      = os.getenv('CORS_ALLOW_METHODS')
     CORS_ALLOW_HEADERS      = os.getenv('CORS_ALLOW_HEADERS')
     CORS_EXPOSE_HEADERS     = os.getenv('CORS_EXPOSE_HEADERS')
     CORS_ALLOW_CREDENTIALS  = os.getenv('CORS_ALLOW_CREDENTIALS')
+    CORS_MAX_AGE            = int(os.getenv('CORS_MAX_AGE')) if os.getenv('CORS_MAX_AGE') else None
