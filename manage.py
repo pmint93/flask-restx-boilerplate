@@ -11,9 +11,9 @@ app = create_app(os.getenv('APPLICATION_ENV') or 'development')
 if app.config.get('ENABLE_CORS', False):
     CORS(
         blueprint,
-        origins=app.config.get('CORS_ALLOW_ORIGINS'),
-        methods=app.config.get('CORS_ALLOW_METHODS'),
-        allow_headers=app.config.get('CORS_ALLOW_HEADERS'),
+        origins=app.config.get('CORS_ALLOW_ORIGINS') or '*',
+        methods=app.config.get('CORS_ALLOW_METHODS') or ['GET', 'HEAD', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+        allow_headers=app.config.get('CORS_ALLOW_HEADERS') or '*',
         expose_headers=app.config.get('CORS_EXPOSE_HEADERS'),
         supports_credentials=bool(app.config.get('CORS_ALLOW_CREDENTIALS', False)),
         max_age=app.config.get('CORS_MAX_AGE')
