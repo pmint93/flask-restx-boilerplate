@@ -2,11 +2,20 @@ import os
 import unittest
 
 from flask_script import Manager
+from flask_cors import CORS
 
 from app import blueprint
 from app.main import create_app
 
 app = create_app(os.getenv('APPLICATION_ENV') or 'development')
+if app.config.get('ENABLE_CORS', False):
+    CORS(
+        blueprint,
+        origins=app.config.get('CORS_ALLOW_ORIGINS'),
+        allow_headers=app.config.get('CORS_ALLOW_HEADERS'),
+        expose_headers=app.config.get('CORS_EXPOSE_HEADERS'),
+        supports_credentials=bool(app.config.get('CORS_ALLOW_CREDENTIALS', False))
+    )
 app.register_blueprint(blueprint)
 
 app.app_context().push()
