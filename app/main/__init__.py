@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_caching import Cache
 from raven.contrib.flask import Sentry
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from .config import Config as config
 

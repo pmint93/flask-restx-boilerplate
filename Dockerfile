@@ -1,8 +1,8 @@
 FROM python:3.7
 
-ENV INSTALL_PATH /app
+ENV WORKDIR /app
 
-WORKDIR $INSTALL_PATH
+WORKDIR $WORKDIR
 
 COPY requirements.txt ./
 
@@ -10,6 +10,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
-
-CMD ["gunicorn", "-c", "gunicorn.conf", "wsgi:app"]
+CMD ["gunicorn", "-c", "gunicorn.py", "wsgi:app"]

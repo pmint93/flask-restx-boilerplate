@@ -2,7 +2,7 @@ version: '2'
 
 services:
   flask-restx-boilerplate:
-    image: pmint93/flask-restx-boilerplate:develop
+    image: flask-restx-boilerplate:develop
     build:
       context: .
     ports:
