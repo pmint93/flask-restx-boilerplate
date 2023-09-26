@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  flask-restplus-boilerplate:
-    image: vccloud/flask-restplus-boilerplate:develop
+  flask-restx-boilerplate:
+    image: pmint93/flask-restx-boilerplate:develop
     build:
       context: .
     ports:

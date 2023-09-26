@@ -35,8 +35,8 @@ http://127.0.0.1:5000/
 
 ```bash
 $ python_version=python3.6
-$ git clone <repo-url> /opt/flask-restplus-boilerplate
-$ cd /opt/flask-restplus-boilerplate/
+$ git clone <repo-url> /opt/flask-restx-boilerplate
+$ cd /opt/flask-restx-boilerplate/
 $ virtualenv --python=${python_version} .
 $ source bin/activate
 $ pip install -r requirements.txt
@@ -45,20 +45,20 @@ $ pip install -r requirements.txt
 Copy and **modify** example environment config
 
 ```bash
-$ cp /opt/flask-restplus-boilerplate/.env.deploy.tpl /opt/flask-restplus-boilerplate/.env.deploy
-$ nano /opt/flask-restplus-boilerplate/.env.deploy
+$ cp /opt/flask-restx-boilerplate/.env.deploy.tpl /opt/flask-restx-boilerplate/.env.deploy
+$ nano /opt/flask-restx-boilerplate/.env.deploy
 ```
 
 Install systemd service
 
 ```bash
-$ cp /opt/flask-restplus-boilerplate/flask-restplus-boilerplate.service /etc/systemd/system/flask-restplus-boilerplate.service
+$ cp /opt/flask-restx-boilerplate/flask-restx-boilerplate.service /etc/systemd/system/flask-restx-boilerplate.service
 ```
 
 Install rsyslog config
 
 ```bash
-$ cp /opt/flask-restplus-boilerplate/flask-restplus-boilerplate.rsyslog.conf /etc/rsyslog.d/flask-restplus-boilerplate.conf
+$ cp /opt/flask-restx-boilerplate/flask-restx-boilerplate.rsyslog.conf /etc/rsyslog.d/flask-restx-boilerplate.conf
 ```
 
 Restart rsyslog
@@ -70,22 +70,22 @@ $ systemctl restart rsyslog
 Enable service to run on boot
 
 ```bash
-$ systemctl enable flask-restplus-boilerplate
+$ systemctl enable flask-restx-boilerplate
 ```
 
 Start service
 
 ```bash
-$ service flask-restplus-boilerplate start
+$ service flask-restx-boilerplate start
 ```
 
 Verify service start successfully
 
 ```bash
-$ service flask-restplus-boilerplate status
+$ service flask-restx-boilerplate status
 ```
 
-Service log available in `journalctl -u flask-restplus-boilerplate` and `/var/log/flask-restplus-boilerplate.log`
+Service log available in `journalctl -u flask-restx-boilerplate` and `/var/log/flask-restx-boilerplate.log`
 
 ### Running on docker container
 
