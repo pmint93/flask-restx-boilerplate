@@ -4,6 +4,8 @@ ENV WORKDIR /app
 
 WORKDIR $WORKDIR
 
+RUN pip install pipenv==2023.9.8
+
 COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
