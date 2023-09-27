@@ -6,9 +6,10 @@ WORKDIR $WORKDIR
 
 RUN pip install pipenv==2023.9.8
 
-COPY requirements.txt ./
+COPY Pipfile .
+COPY Pipfile.lock .
 
-RUN pip install -r requirements.txt
+RUN pipenv install --deploy --system
 
 COPY . .
 
