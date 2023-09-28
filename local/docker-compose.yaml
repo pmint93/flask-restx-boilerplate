@@ -1,8 +1,12 @@
 version: '2'
 
 services:
-  flask-restplus-boilerplate:
-    image: vccloud/flask-restplus-boilerplate:develop
+  flask-restx-boilerplate:
+    image: flask-restx-boilerplate:develop
+    command:
+      - python
+      - manage.py
+      - run
     build:
       context: .
     ports:

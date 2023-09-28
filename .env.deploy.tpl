@@ -3,6 +3,13 @@ SECRET_KEY=
 WORKER=10
 BIND_PORT=5000
 SENTRY_CONFIG=true
-SENTRY_CONFIG_DSN=https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@sentry.k8s.vn/44?verify_ssl=0
+SENTRY_CONFIG_DSN=https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@sentry.io/44?verify_ssl=0
 TIMEOUT=30
 LOGLEVEL=info
+ENABLE_CORS=
+CORS_ALLOW_ORIGINS=
+CORS_ALLOW_METHODS=
+CORS_ALLOW_HEADERS=
+CORS_EXPOSE_HEADERS=
+CORS_ALLOW_CREDENTIALS=
+CORS_MAX_AGE=

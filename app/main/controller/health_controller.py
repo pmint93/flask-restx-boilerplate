@@ -1,6 +1,6 @@
 from flask import request, Response
 from flask import current_app as app
-from flask_restplus import Resource, Namespace, fields
+from flask_restx import Resource, Namespace, fields
 
 
 api = Namespace('health', description='Healthcheck API')

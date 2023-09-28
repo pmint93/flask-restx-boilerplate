@@ -18,3 +18,11 @@ class Config:
         'username': os.getenv('MONGO_USER'),
         'password': os.getenv('MONGO_PASS'),
     }
+    # CORS
+    ENABLE_CORS             = True if (os.getenv('ENABLE_CORS') or 'False').lower() != 'false' else False
+    CORS_ALLOW_ORIGINS      = os.getenv('CORS_ALLOW_ORIGINS',  '').split(',')
+    CORS_ALLOW_METHODS      = os.getenv('CORS_ALLOW_METHODS',  '').split(',')
+    CORS_ALLOW_HEADERS      = os.getenv('CORS_ALLOW_HEADERS',  '').split(',')
+    CORS_EXPOSE_HEADERS     = os.getenv('CORS_EXPOSE_HEADERS', '').split(',')
+    CORS_ALLOW_CREDENTIALS  = True if (os.getenv('CORS_ALLOW_CREDENTIALS') or 'False').lower() != 'false' else False
+    CORS_MAX_AGE            = int(os.getenv('CORS_MAX_AGE')) if os.getenv('CORS_MAX_AGE') else None
