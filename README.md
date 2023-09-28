@@ -34,7 +34,7 @@ http://127.0.0.1:5000/
 #### Installation
 
 ```bash
-$ python_version=python3.6
+$ python_version=python3.7
 $ git clone <repo-url> /opt/flask-restx-boilerplate
 $ cd /opt/flask-restx-boilerplate/
 $ virtualenv --python=${python_version} .
