@@ -5,10 +5,12 @@ clean:
 	find . -type f -name '*.log' -delete
 
 system-packages:
-	sudo apt install python-pip -y
+	apt update
+	apt install python3-pip -y
+	pip install pipenv==2023.9.8
 
 python-packages:
-	pip install -r requirements.txt
+	pipenv install
 
 install: system-packages python-packages
 
