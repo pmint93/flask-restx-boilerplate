@@ -1,4 +1,4 @@
-# Flask-Restplus Boilerplate
+# Flask-Restx Boilerplate
 
 ## Local development
 
